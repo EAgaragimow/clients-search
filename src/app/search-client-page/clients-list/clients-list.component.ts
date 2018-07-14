@@ -9,7 +9,6 @@ import {Client} from '../../shared/models/client.model';
 export class ClientsListComponent implements OnInit {
 
   @Input() clients: Client[];
-
   @Output() clientSelect = new EventEmitter();
 
   constructor() {

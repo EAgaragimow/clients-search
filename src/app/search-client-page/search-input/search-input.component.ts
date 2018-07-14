@@ -16,7 +16,10 @@ export class SearchInputComponent implements OnInit {
   ngOnInit() {
   }
 
-  onKeyUpSearch() {
+  onKeyUpSearch(e) {
+    if (e.keyCode === 8) {
+      this.search.emit('backspace' + this.searchInput);
+    }
     this.search.emit(this.searchInput);
   }
 

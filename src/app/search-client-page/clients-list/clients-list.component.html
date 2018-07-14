@@ -3,7 +3,9 @@
     <img src="{{ client['general']['avatar'] }}" alt="client-avatar">
   </div>
   <div class="client__info">
-    <p class="client__full-name">{{ client['general']['firstName'] + ' ' +  client['general']['lastName'] }}</p>
+    <p class="client__full-name">
+      {{ client['general']['firstName'] + ' ' +  client['general']['lastName'] }}
+    </p>
     <p class="client__job">{{ client['job']['title'] }}</p>
   </div>
 </div>

@@ -11,6 +11,7 @@ export class SearchClientPageComponent implements OnInit {
 
   client: Client;
   clients: Client[] = [];
+  reserveClients: Client[] = [];
   temporaryArr: Client[];
 
   constructor(private clientsService: ClientsService) {
@@ -20,6 +21,7 @@ export class SearchClientPageComponent implements OnInit {
     this.clientsService.getClients()
       .subscribe((clients: Client[]) => {
         this.clients = clients;
+        this.reserveClients = clients;
       });
   }
 
@@ -27,10 +29,25 @@ export class SearchClientPageComponent implements OnInit {
     this.temporaryArr = [];
 
     if (str === '') {
-      this.clientsService.getClients()
-        .subscribe((clients: Client[]) => {
-          this.clients = clients;
-        });
+      this.clients = this.reserveClients;
+    } else if (str.match('backspace')) {
+      const sliceStr = str.slice(9);
+
+      this.clients = this.reserveClients;
+
+      this.clients.forEach((item) => {
+        for (const itemKey in item) {
+          for (const val in item[itemKey]) {
+            if (item[itemKey][val].toLowerCase().match(sliceStr.toLowerCase())) {
+              if (item === this.temporaryArr[this.temporaryArr.length - 1]) {
+                continue;
+              }
+              this.temporaryArr.push(item);
+            }
+          }
+        }
+      });
+      return this.clients = this.temporaryArr;
     }
 
     this.clients.forEach((item) => {

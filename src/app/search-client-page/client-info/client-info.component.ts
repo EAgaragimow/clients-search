@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Client} from '../../shared/models/client.model';
 
 @Component({
   selector: 'app-client-info',
@@ -7,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ClientInfoComponent implements OnInit {
 
-  @Input() client;
+  @Input() client: Client;
 
   constructor() {
   }
