@@ -62,10 +62,10 @@
       box-sizing: content-box;
 
       .client {
-        display: flex;
         cursor: pointer;
-        padding: 11px 10px;
+        display: flex;
         justify-content: center;
+        padding: 11px 10px;
         border-bottom: 1px solid darkblue;
         z-index: 1000;
 
@@ -108,6 +108,7 @@
           border-bottom: 2px solid darkblue;
           border-top: 1px solid darkblue;
           padding: 10px;
+          background: #248eff1f;
         }
       }
     }
@@ -175,5 +176,3 @@
     }
   }
 }
-
-

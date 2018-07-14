@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Client} from '../../shared/models/client.model';
 
 @Component({
@@ -6,19 +6,22 @@ import {Client} from '../../shared/models/client.model';
   templateUrl: './clients-list.component.html',
   styleUrls: ['./clients-list.component.scss']
 })
-export class ClientsListComponent implements OnInit {
+export class ClientsListComponent {
 
   @Input() clients: Client[];
   @Output() clientSelect = new EventEmitter();
 
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
-  select(client: Client) {
+  select(client: Client, event) {
     this.clientSelect.emit(client);
+    const childNodes = event.path[1].childNodes;
+
+    childNodes.forEach((item) => {
+      if (item.className === 'client ng-star-inserted active') {
+        item.className = 'client ng-star-inserted';
+      }
+    });
+
+    event.target.className += ' active';
   }
 
 }

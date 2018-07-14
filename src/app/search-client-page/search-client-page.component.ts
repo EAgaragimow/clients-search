@@ -8,7 +8,6 @@ import {ClientsService} from '../shared/services/clients.service';
   styleUrls: ['./search-client-page.component.scss']
 })
 export class SearchClientPageComponent implements OnInit {
-
   client: Client;
   clients: Client[] = [];
   reserveClients: Client[] = [];
@@ -30,9 +29,10 @@ export class SearchClientPageComponent implements OnInit {
 
     if (str === '') {
       this.clients = this.reserveClients;
-    } else if (str.match('backspace')) {
-      const sliceStr = str.slice(9);
+    }
 
+    if (str.match('backspace')) {
+      const sliceStr = str.slice(9);
       this.clients = this.reserveClients;
 
       this.clients.forEach((item) => {
@@ -62,12 +62,10 @@ export class SearchClientPageComponent implements OnInit {
         }
       }
     });
-
     return this.clients = this.temporaryArr;
   }
 
   clientChoice(client: Client) {
     this.client = client;
   }
-
 }

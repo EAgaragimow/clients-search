@@ -4,9 +4,11 @@ import {SearchClientPageComponent} from './search-client-page.component';
 import {ClientInfoComponent} from './client-info/client-info.component';
 
 const routes: Routes = [
-  {path: 'clients', component: SearchClientPageComponent, children: [
+  {
+    path: 'clients', component: SearchClientPageComponent, children: [
       {path: ':id', component: ClientInfoComponent}
-    ]}
+    ]
+  }
 ];
 
 @NgModule({

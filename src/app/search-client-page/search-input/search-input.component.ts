@@ -1,20 +1,14 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-search-input',
   templateUrl: './search-input.component.html',
   styleUrls: ['./search-input.component.scss']
 })
-export class SearchInputComponent implements OnInit {
+export class SearchInputComponent {
 
   searchInput: string = '';
   @Output() search = new EventEmitter();
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
 
   onKeyUpSearch(e) {
     if (e.keyCode === 8) {
