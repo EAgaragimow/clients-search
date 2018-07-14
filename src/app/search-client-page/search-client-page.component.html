@@ -1,15 +1,15 @@
 <div class="wrap">
   <div class="search-block">
     <div class="search-block__input">
-      <app-search-input></app-search-input>
+      <app-search-input (addText)="onAdd($event)"></app-search-input>
     </div>
     <div class="search-block__clients-list">
-      <app-clients-list></app-clients-list>
+      <app-clients-list [clients]="clients"></app-clients-list>
     </div>
   </div>
   <div class="client-info">
     <div class="client">
-      <router-outlet></router-outlet>
+      <app-client-info></app-client-info>
     </div>
   </div>
 </div>

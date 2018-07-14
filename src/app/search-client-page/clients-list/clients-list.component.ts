@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {ClientsService} from '../../shared/services/clients.service';
-import {Client} from '../../shared/models/client.model';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-clients-list',
@@ -9,15 +7,12 @@ import {Client} from '../../shared/models/client.model';
 })
 export class ClientsListComponent implements OnInit {
 
-  clients: Client[] = [];
+  @Input() clients;
 
-  constructor(private clientsService: ClientsService) {}
+  constructor() {
+  }
 
   ngOnInit() {
-    this.clientsService.getClients()
-      .subscribe((clients: Client[]) => {
-        this.clients = clients;
-      });
   }
 
 }

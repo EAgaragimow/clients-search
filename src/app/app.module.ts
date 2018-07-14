@@ -3,6 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 import {AppRoutingModule} from './app-routing.module';
 import {ClientRoutingModule} from './search-client-page/client-routing.module';
@@ -29,7 +30,8 @@ import {SearchClientPageComponent} from './search-client-page/search-client-page
     ClientRoutingModule,
     AppRoutingModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
