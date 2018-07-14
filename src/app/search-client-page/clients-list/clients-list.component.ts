@@ -18,8 +18,7 @@ export class ClientsListComponent implements OnInit {
   ngOnInit() {
   }
 
-  select(client: Client, e) {
-    console.log(e);
+  select(client: Client) {
     this.clientSelect.emit(client);
   }
 
