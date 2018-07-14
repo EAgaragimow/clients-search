@@ -9,10 +9,11 @@
     </div>
   </div>
   <div class="selected-client__main-info">
-    <p class="street">{{ client?.address.street }}</p>
-    <p class="city">{{ client?.address.city }}, {{ client?.address.country }}</p>
-    <p class="zip-code">{{ client?.address.zipCode }}</p>
-    <p class="phone">{{ client?.contact.phone }}</p>
-    <p class="email">{{ client?.contact.email }}</p>
+    <div class="info-wrap">
+      <p class="street"><b>Address: </b>{{ client?.address.street }}</p>
+      <p class="city">{{ client?.address.city }}, {{ client?.address.zipCode }} {{ client?.address.country }}</p>
+      <p class="phone"><b>Phone: </b>{{ client?.contact.phone }}</p>
+      <p class="email"><b>Email: </b>{{ client?.contact.email }}</p>
+    </div>
   </div>
 </div>
