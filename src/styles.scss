@@ -67,6 +67,59 @@
 
   .client-info {
     flex-grow: 1;
+
+    .selected-client {
+      display: flex;
+
+      &__avatar {
+        flex-basis: 20%;
+
+        img {
+          min-width: 100%;
+        }
+      }
+
+      &__title-info {
+        flex-basis: 80%;
+        display: flex;
+
+        .name,
+        .job {
+          flex-basis: 100%;
+        }
+
+        .name {
+          font-size: 40px;
+        }
+
+        .job {
+
+        }
+      }
+
+      &__main-info {
+        .street {
+
+        }
+
+        .city {
+
+        }
+
+        .zip-code {
+
+        }
+
+        .phone {
+
+        }
+
+        .email {
+
+        }
+      }
+
+    }
   }
 }
 

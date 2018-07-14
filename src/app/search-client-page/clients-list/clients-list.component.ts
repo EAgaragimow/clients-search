@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Client} from '../../shared/models/client.model';
 
 @Component({
   selector: 'app-clients-list',
@@ -7,12 +8,18 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ClientsListComponent implements OnInit {
 
-  @Input() clients;
+  @Input() clients: Client[];
+
+  @Output() clientSelect = new EventEmitter();
 
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  select(client: Client) {
+    this.clientSelect.emit(client);
   }
 
 }

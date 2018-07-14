@@ -8,7 +8,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class SearchInputComponent implements OnInit {
 
   searchInput: string = '';
-  @Output() addText = new EventEmitter();
+  @Output() search = new EventEmitter();
 
   constructor() {
   }
@@ -16,11 +16,8 @@ export class SearchInputComponent implements OnInit {
   ngOnInit() {
   }
 
-  onKeyUpSearch(event) {
-    if (event.keyCode === 8) {
-      this.addText.emit('240796' + this.searchInput);
-    }
-    this.addText.emit(this.searchInput);
+  onKeyUpSearch() {
+    this.search.emit(this.searchInput);
   }
 
 }

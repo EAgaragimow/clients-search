@@ -9,6 +9,7 @@ import {ClientsService} from '../shared/services/clients.service';
 })
 export class SearchClientPageComponent implements OnInit {
 
+  client: Client;
   clients: Client[] = [];
   temporaryArr: Client[];
 
@@ -22,7 +23,7 @@ export class SearchClientPageComponent implements OnInit {
       });
   }
 
-  onAdd(str: string) {
+  search(str: string) {
     this.temporaryArr = [];
 
     if (str === '') {
@@ -33,9 +34,9 @@ export class SearchClientPageComponent implements OnInit {
     }
 
     this.clients.forEach((item) => {
-      for (let itemKey in item) {
-        for (let iter in item[itemKey]) {
-          if (item[itemKey][iter].toLowerCase().match(str.toLowerCase())) {
+      for (const itemKey in item) {
+        for (const val in item[itemKey]) {
+          if (item[itemKey][val].toLowerCase().match(str.toLowerCase())) {
             if (item === this.temporaryArr[this.temporaryArr.length - 1]) {
               continue;
             }
@@ -48,5 +49,8 @@ export class SearchClientPageComponent implements OnInit {
     return this.clients = this.temporaryArr;
   }
 
+  clientChoice(client: Client) {
+    this.client = client;
+  }
 
 }

@@ -1,3 +1,18 @@
-<div *ngFor="let client of clients">
-  <p><b>Name:</b> {{ client['general']['firstName'] }} {{ client['general']['lastName'] }}</p>
+<div *ngIf="client" class="selected-client">
+  <div class="selected-client__avatar"><img src="{{ client?.general.avatar }}" alt="Avatar"></div>
+  <div class="selected-client__title-info">
+    <div class="name">
+      {{ client?.general.firstName }} {{ client?.general.lastName }}
+    </div>
+    <div class="job">
+      {{ client?.job.title }} - {{ client?.job.company }}
+    </div>
+  </div>
+  <div class="selected-client__main-info">
+    <p class="street">{{ client?.address.street }}</p>
+    <p class="city">{{ client?.address.city }}, {{ client?.address.country }}</p>
+    <p class="zip-code">{{ client?.address.zipCode }}</p>
+    <p class="phone">{{ client?.contact.phone }}</p>
+    <p class="email">{{ client?.contact.email }}</p>
+  </div>
 </div>
